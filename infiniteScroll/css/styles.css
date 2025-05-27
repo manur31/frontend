@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins', monospace;
+}
+
+h1 {
+    margin-top: 3rem;
+    font-size: 2.8rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 2rem 10rem;
+}
+
+    .card {
+        background-color: #f0f0f0;
+        padding: 2rem;
+        border-radius: .5rem;
+        border-left: .3rem solid #335cff;
+        transition: .3s ease;
+    }
+
+        .card:hover {
+            cursor: pointer;
+            transform: scale(1.05) rotate(.5deg);
+            box-shadow: 2px 2px 10px #335cff93;
+        }
+
+        .card h2 {
+            font-size: 1rem;
+        }
+
+        .card p {
+            font-size: .8rem;
+            text-align: justify;
+            margin-top: 1rem;
+        }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 1rem;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 1rem;
+        padding: 2rem;
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        scale: 25%;
+    } to {
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+section {
+    view-timeline-name: --section;
+    view-timeline-axis: block;
+
+    animation-timeline: --section;
+    animation-name: show;
+
+    animation-range: entry 25% cover 30%;
+    animation-fill-mode: both;
+}
